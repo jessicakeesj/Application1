@@ -24,10 +24,22 @@ public class EventsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.events_tab, container, false);
-        ListView listView=(ListView) view.findViewById(R.id.listView);
+        final ListView listView=(ListView) view.findViewById(R.id.listView);
 
         CustomAdapter customAdapter=new CustomAdapter();
         listView.setAdapter(customAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                                    long id) {
+
+                TextView data = (TextView) view.findViewById(R.id.textView_name);
+
+                Toast.makeText(getActivity().getBaseContext(), data.getText().toString(), Toast.LENGTH_LONG).show();
+
+            }
+        });
 
         return view;
     }
