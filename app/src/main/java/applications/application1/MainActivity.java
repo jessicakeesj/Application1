@@ -1,80 +1,47 @@
 package applications.application1;
 
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
+
 
 public class MainActivity extends AppCompatActivity {
-
-    int[] IMAGES = {R.drawable.splash};
-
-    String[] NAME = {"Consumer Electronics Exhibition"};
-
-    String[] DESC = {"Hello World"};
-
-    String[] DATE = {"24/5/2018"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ListView listView=(ListView)findViewById(R.id.listView);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        tabLayout.addTab(tabLayout.newTab().setText("EVENTS"));
+        tabLayout.addTab(tabLayout.newTab().setText("PROMOTIONS"));
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        CustomAdapter customAdapter=new CustomAdapter();
-        listView.setAdapter(customAdapter);
-
-        listView.setOnItemClickListener(new OnItemClickListener() {
+        final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+        final PagerAdapter adapter = new PagerAdapter
+                (getSupportFragmentManager(), tabLayout.getTabCount());
+        viewPager.setAdapter(adapter);
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getBaseContext(), "Clicked", Toast.LENGTH_LONG).show();
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
             }
         });
 
-    }
-
-    class CustomAdapter extends BaseAdapter {
-
-        @Override
-        public int getCount() {
-            return IMAGES.length;
-        }
-
-        @Override
-        public Object getItem(int i) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int i) {
-            return 0;
-        }
-
-        @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
-            view = getLayoutInflater().inflate(R.layout.customlayout,null);
-
-            ImageView imageView=(ImageView)view.findViewById(R.id.imageView);
-            TextView textView_name = (TextView)view.findViewById(R.id.textView_name);
-            TextView textView_desc = (TextView)view.findViewById(R.id.textView_desc);
-            TextView textView_date = (TextView)view.findViewById(R.id.textView_date);
-
-            imageView.setImageResource(IMAGES[i]);
-            textView_name.setText(NAME[i]);
-            textView_desc.setText(DESC[i]);
-            textView_date.setText(DATE[i]);
-            return view;
-        }
-
 
     }
+
+
 }
