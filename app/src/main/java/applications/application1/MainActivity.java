@@ -4,10 +4,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     String[] NAME = {"Consumer Electronics Exhibition"};
 
     String[] DESC = {"Hello World"};
+
+    String[] DATE = {"24/5/2018"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +33,16 @@ public class MainActivity extends AppCompatActivity {
         CustomAdapter customAdapter=new CustomAdapter();
         listView.setAdapter(customAdapter);
 
+        listView.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getBaseContext(), "Clicked", Toast.LENGTH_LONG).show();
+            }
+        });
+
     }
 
     class CustomAdapter extends BaseAdapter {
-
 
         @Override
         public int getCount() {
@@ -54,11 +66,15 @@ public class MainActivity extends AppCompatActivity {
             ImageView imageView=(ImageView)view.findViewById(R.id.imageView);
             TextView textView_name = (TextView)view.findViewById(R.id.textView_name);
             TextView textView_desc = (TextView)view.findViewById(R.id.textView_desc);
+            TextView textView_date = (TextView)view.findViewById(R.id.textView_date);
 
             imageView.setImageResource(IMAGES[i]);
             textView_name.setText(NAME[i]);
             textView_desc.setText(DESC[i]);
+            textView_date.setText(DATE[i]);
             return view;
         }
+
+
     }
 }
