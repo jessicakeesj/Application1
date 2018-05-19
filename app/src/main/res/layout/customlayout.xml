@@ -21,6 +21,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/imageView"
         android:text="TextView"
+        android:paddingLeft="15dp"
         android:textSize="20sp" />
 
     <TextView
@@ -30,6 +31,7 @@
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/textView_name"
         android:text="TextView"
+        android:paddingLeft="15dp"
         android:textSize="16sp" />
 
     <TextView
@@ -39,6 +41,7 @@
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/textView_desc"
         android:text="TextView"
+        android:paddingLeft="15dp"
         android:textSize="16sp" />
 
 </RelativeLayout>
