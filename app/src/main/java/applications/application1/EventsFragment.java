@@ -36,7 +36,7 @@ public class EventsFragment extends Fragment {
 
                 TextView data = (TextView) view.findViewById(R.id.textView_name);
 
-                Toast.makeText(getActivity().getBaseContext(), data.getText().toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity().getBaseContext(), data.getText().toString(), Toast.LENGTH_SHORT).show();
 
             }
         });

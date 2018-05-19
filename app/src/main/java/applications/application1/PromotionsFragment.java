@@ -29,6 +29,17 @@ public class PromotionsFragment extends Fragment {
         CustomAdapter customAdapter=new CustomAdapter();
         listView.setAdapter(customAdapter);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                                    long id) {
+
+                TextView data = (TextView) view.findViewById(R.id.textView_name);
+
+                Toast.makeText(getActivity().getBaseContext(), data.getText().toString(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
         return view;
     }
 
