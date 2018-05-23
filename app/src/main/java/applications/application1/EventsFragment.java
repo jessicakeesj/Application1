@@ -3,21 +3,21 @@ package applications.application1;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
+import java.util.ArrayList;
+
+import java.util.ArrayList;
 
 public class EventsFragment extends Fragment {
-    int[] IMAGES = {R.drawable.splash, R.drawable.splash};
+
+    /*int[] IMAGES = {R.drawable.splash, R.drawable.splash};
 
     String[] NAME = {"Consumer Electronics Exhibition", "A"};
 
@@ -40,15 +40,13 @@ public class EventsFragment extends Fragment {
 
                 TextView data = (TextView) view.findViewById(R.id.textView_name);
 
-                Toast.makeText(getActivity().getBaseContext(), data.getText().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity().getBaseContext(), data.getText().toString(), Toast.LENGTH_LONG).show();
 
             }
         });
 
         return view;
     }
-
-
 
     class CustomAdapter extends BaseAdapter {
 
@@ -84,5 +82,5 @@ public class EventsFragment extends Fragment {
         }
 
 
-    }
+    }*/
 }

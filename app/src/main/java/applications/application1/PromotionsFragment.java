@@ -13,7 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class PromotionsFragment extends Fragment {
-    int[] IMAGES = {R.drawable.splash};
+    /*int[] IMAGES = {R.drawable.splash};
 
     String[] NAME = {"Consumer Electronics Exhibition"};
 
@@ -77,5 +77,5 @@ public class PromotionsFragment extends Fragment {
         }
 
 
-    }
+    }*/
 }
