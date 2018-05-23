@@ -11,12 +11,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import java.util.ArrayList;
-
-import java.util.ArrayList;
 
 public class EventsFragment extends Fragment {
-
     /*int[] IMAGES = {R.drawable.splash, R.drawable.splash};
 
     String[] NAME = {"Consumer Electronics Exhibition", "A"};
